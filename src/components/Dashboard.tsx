@@ -8,7 +8,7 @@ import '../styles/dropdown.css';
 // Import components and utilities
 import { AgGridComponent, getDefaultColumns } from './ag-grid';
 import { useColumnVisibility } from '../hooks/useColumnVisibility';
-import data from '../data/data.json';
+import data from '../Data/data.json';
 
 function Dashboard() {
   const [rowData] = useState(data.employees);
