@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# Employee Dashboard with AG Grid
+A dashboard built with React, TypeScript, and AG Grid Community.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Quick look
+- **link**: https://dashboard-with-ag-grid-n2i9.vercel.app/
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Functionality
 
-## React Compiler
+### Data Display
+- **10 Default Columns**: Optimized selection of essential employee information
+- **Custom Cell Renderers**: Specialized rendering for different data types
+- **Zebra Striping**: Alternating row colors for better readability
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### User Interface
+- **Column Visibility Controls**: Toggle any column on/off via dropdown filter
+- **Pagination**: Configurable page sizes (10, 50, 100 items)
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```
+src/
+├── components/
+│   ├── Dashboard.tsx          # Main dashboard component
+│   └── ag-grid.tsx           # AG Grid configuration and cell renderers
+├── data/
+│   └── data.json             # Employee data
+├── hooks/
+│   └── useColumnVisibility.ts # Column visibility management
+├── styles/
+│   ├── dashboard.css         # Dashboard layout styles
+│   ├── dropdown.css          # Column filter dropdown styles
+├── types/
+│   └── index.ts             # TypeScript interfaces
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎨 Design Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Custom Cell Renderers
+- **Status Renderer**: Color-coded active/inactive status with checkmarks
+- **Department Renderer**: Color-coded department badges
+- **Performance Renderer**: Star rating system with color-coded performance levels
+- **Salary Renderer**: Currency formatted display with dollar icon
+- **Email Renderer**: Styled email addresses for better visibility
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (version 16 or higher)
+- npm or yarn package manager
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/uv84/Dashboard-with-AG-Grid.git
+   cd Fact-wise-ag-dashboard
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173` to view the application
+
+### Building for Production
+
+```bash
+# Build the project
+npm run build
+
+# Preview the production build
+npm run preview
 ```
+
+## 🎯 Key Components
+
+### Dashboard.tsx
+- Main application component
+- Manages column visibility state
+- Renders header controls and grid container
+
+### ag-grid.tsx
+- AG Grid configuration and setup
+- Custom cell renderer definitions
+- Column definitions and defaults
+
+### useColumnVisibility.ts
+- Custom hook for managing column visibility
+- Handles select all/deselect all functionality
+- Manages dropdown open/close state
